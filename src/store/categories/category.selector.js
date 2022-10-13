@@ -8,7 +8,6 @@ export const selectCategories = createSelector(
   (categoriesSlice) => categoriesSlice.categories
 );
 
-
 //if selectCategories keep same values this will not re-execute
 export const selectCategoriesMap = createSelector(
   [selectCategories],
@@ -18,4 +17,9 @@ export const selectCategoriesMap = createSelector(
       acc[title.toLowerCase()] = items;
       return acc;
     }, {})
+);
+
+export const selectCategoriesIsLoading = createSelector(
+  [selectCategoriesMap],
+  (categoriesSlice) => categoriesSlice.isLoading
 );

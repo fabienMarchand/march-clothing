@@ -9,7 +9,13 @@ const middleWares = [process.env.NODE_ENV === "develepoment" && logger].filter(
   Boolean
 );
 
-const composedEnhancers = compose(applyMiddleware(...middleWares));
+const composeEnhancer =
+  (process.env.NODE_ENV !== "production" &&
+    window &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
+const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
 
 //define what will be persistant or not
 const persistConfig = {

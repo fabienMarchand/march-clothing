@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import {
-  signInAuthUserWithEmailAndPassword,
-} from "../../utils/firebase/firebase.utils";
+import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.components";
-import Button, {BUTTON_TYPE_CLASSES} from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
-import {SignInContainer, ButtonsContainer} from "./sign-in-form.styles.jsx";
-import { googleSignInStart } from "../../store/user/user.Action";
+import { SignInContainer, ButtonsContainer } from "./sign-in-form.styles.jsx";
+import {
+  googleSignInStart,
+  emailSignInStart,
+} from "../../store/user/user.Action";
 
 const defaultFormFields = {
   email: "",
@@ -33,10 +34,7 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+      dispatch(emailSignInStart(email, password));
 
       resetFormFields();
     } catch (error) {
@@ -64,27 +62,27 @@ const SignInForm = () => {
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
-          label='Email'
-          type='email'
+          label="Email"
+          type="email"
           required
           onChange={handleChange}
-          name='email'
+          name="email"
           value={email}
         />
 
         <FormInput
-          label='Password'
-          type='password'
+          label="Password"
+          type="password"
           required
           onChange={handleChange}
-          name='password'
+          name="password"
           value={password}
         />
         <ButtonsContainer>
-          <Button type='submit'>Sign In</Button>
+          <Button type="submit">Sign In</Button>
           <Button
             buttonType={BUTTON_TYPE_CLASSES.google}
-            type='button'
+            type="button"
             onClick={signInWithGoogle}
           >
             Sign In With Google

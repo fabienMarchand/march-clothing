@@ -40,7 +40,7 @@ export function* isUserAuthenticated() {
   }
 }
 
-export function* onGooglSignInStart() {
+export function* onGoogleSignInStart() {
   yield takeLatest(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
 
@@ -49,5 +49,5 @@ export function* onCheckUserSession() {
 }
 
 export function* userSaga() {
-  yield all([call(onCheckUserSession), call(onGooglSignInStart)]);
+  yield all([call(onCheckUserSession), call(onGoogleSignInStart)]);
 }

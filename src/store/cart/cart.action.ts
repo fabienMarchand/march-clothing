@@ -1,4 +1,4 @@
-import { CartItems } from "../../components/cart-dropdown/cart-dropdown.styles";
+
 import {
   ActionWithPayload,
   createAction,

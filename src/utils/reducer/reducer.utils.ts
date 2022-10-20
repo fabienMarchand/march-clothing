@@ -10,7 +10,7 @@ export type Action<T> = {
 };
 
 export function createAction<T extends string, P>(
-  type: P,
+  type: T,
   payload: P
 ): ActionWithPayload<T, P>;
 

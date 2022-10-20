@@ -14,7 +14,7 @@ import {
   signUpFailed,
   signOutSuccess,
   signOutFailed,
-} from "./user.Action";
+} from "./user.action";
 
 import { USER_ACTION_TYPES } from "./user.types";
 

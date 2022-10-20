@@ -15,7 +15,7 @@ import {
   NavLink,
   LogoContainer,
 } from "./navigation.styles";
-import { signOutStart } from "../../store/user/user.Action";
+import { signOutStart } from "../../store/user/user.action";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);

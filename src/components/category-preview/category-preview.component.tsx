@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
 import { CategoryItem } from "../../store/categories/category.types";
@@ -16,7 +16,7 @@ type CategoryPreviewProps = {
   products: CategoryItem[];
 };
 
-const CatgoryPreview: FC<CategoryPreviewProps> = ({
+const CatgoryPreview: FC<CategoryPreviewProps> = memo(({
   title,
   products,
 }) => {
@@ -34,6 +34,6 @@ const CatgoryPreview: FC<CategoryPreviewProps> = ({
       </Preview>
       </CategoryPreviewContainer>
   );
-};
+});
 
 export default CatgoryPreview;

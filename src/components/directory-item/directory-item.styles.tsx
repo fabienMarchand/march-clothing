@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-type BackgroundImageProps= {
+type BackgroundImageProps = {
   imageUrl: string;
-}
+};
 
 export const BackgroundImage = styled.div<BackgroundImageProps>`
   width: 100%;
@@ -36,6 +36,7 @@ export const Body = styled.div`
     font-weight: lighter;
     font-size: 16px;
   }
+
 `;
 
 export const DirectoryItemContainer = styled.div`
@@ -69,4 +70,10 @@ export const DirectoryItemContainer = styled.div`
       margin-left: 7.5px;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
+  }
+
+
 `;

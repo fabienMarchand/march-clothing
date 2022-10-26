@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from "react";
+import { Fragment, useEffect, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -23,16 +23,16 @@ const App = () => {
   }, []);
 
   return (
-    <Suspense fallback={<Spinner />}>
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<Home />} />
-          <Route path="shop/*" element={<Shop />} />
-          <Route path="authentication" element={<Authentication />} />
-          <Route path="checkout" element={<Checkout />} />
-        </Route>
-      </Routes>
-    </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route path="shop/*" element={<Shop />} />
+            <Route path="authentication" element={<Authentication />} />
+            <Route path="checkout" element={<Checkout />} />
+          </Route>
+        </Routes>
+      </Suspense>
   );
 };
 
